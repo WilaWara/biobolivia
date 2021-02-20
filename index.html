@@ -1,0 +1,668 @@
+<!DOCTYPE html> 
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale = 1, maximum-scale = 1"/>
+        <meta property="og:title" content="Laboratorio Boliviano de Biodiversidad y Desarrollo" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Sitio sobre servicios y productos relacionados con...">
+        <meta property="og:image" content="img/logo.png" />
+        <meta property="og:url" content="http://biobolivia.tech" />
+        <link rel="icon" type="image/png" href="img/icono.png">
+        <title>Laboratorio Boliviano de Biodiversidad y Desarrollo</title>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+
+            @font-face {
+                font-family:"space_age";
+                src:url("fuentes/space_age.ttf");
+            }
+
+            @font-face{
+                font-family:"Exo-Light";
+                src:url("fuentes/Exo-Light.ttf");
+            }
+
+            @keyframes animacion_izquierda_derecha {
+                from {left:-100%;}
+                to {left:0;}
+            }
+
+            @keyframes animacion_derecha_izquierda {
+                from {left:100%;}
+                to {left:0;}
+            }
+
+            #fondo_temporal{
+                position:absolute;
+                width:100%;
+                height:100%;
+                left:0;
+                top:0;
+            }
+
+            header{
+                position:fixed;
+                width:100%;
+                height:10%;
+                left:0;
+                top:0;
+                background-color:white;
+                z-index:2;
+                overflow-x:hidden;
+            }
+
+            #logo{
+                position:absolute;
+                width:auto;
+                height:90%;
+                left:2%;
+                top:5%;
+            }
+
+            .ir_secciones{
+                position:absolute;
+                top:25%;
+                color:#3ea9f7;
+                font-family:"space_age";
+                font-size:140%;
+            }
+
+            #ir_inicio{left:24%;}
+            #ir_productos{left:31%;}
+            #ir_servicios{left:46%;}
+            #ir_quienes_somos{left:59%;}
+            #ir_contactos{left:70%;}
+
+            .ir_rrss{
+                position:absolute;
+                height:60%;
+                width:auto;
+                top:20%;
+            }
+
+            #ir_facebook{right:10%;}
+            #ir_twitter{right:6%;}
+            #ir_youtube{right:2%;}
+
+            body{
+                color:#fff;
+                overflow-x:hidden;
+                z-index:0;
+            }
+
+            #fondo_flotante{
+                position:fixed;
+                width:100%;
+                height:100%;
+                left:0;
+                top:0;
+                z-index:0;
+            }
+
+            #presentacion{
+                position:absolute;
+                width:100%;
+                height:100%;
+                left:0;
+                top:0;
+                z-index:1;
+                /*background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));*/
+            }
+
+            #video_presentacion{
+                position:absolute;
+                left:0;
+                top:0;
+                z-index:0;
+                overflow:hidden;
+                background-size: 100% 80%;
+                min-width: 100%;
+                min-height: 80%;
+                width: auto;
+                height: 100%;
+                object-fit:fill;
+                opacity:0.6;
+            }
+
+            #texto_presentacion{
+                position:absolute;
+                width:50%;
+                left:10%;
+                top:60%;
+                font-family:"space_age";
+                font-size:180%;
+                background-color:#3ea9f7;
+                color:white;
+                padding:20px;
+                border-radius:8px;
+                z-index:2;
+            }
+
+            .secciones{
+                position:absolute;
+                width:100%;
+                height:80%;
+            }
+
+            #servicios{
+                top:100%;
+                background-color:white;
+                left:100%;
+                /*animation-name: animacion_derecha_izquierda;
+                animation-duration: 2s;*/
+            }
+
+            .ofertas_servicios{
+                width:20%;
+                height:90%;
+                margin-left:4%;
+                margin-top:2%;
+                border-style:solid;
+                border-width:1px;
+                border-radius:9px;
+                background-color:#3ea9f7;
+                float:left;
+            }
+
+            .imagenes_servicios{
+                width:100%;
+                height:50%;
+                left:0;
+                top:0;
+                border-color:white;
+            }
+
+            .titulos_servicios{
+                width:100%;
+                left:0;
+                top:50%;
+                font-family:"Exo-Light";
+                font-size:100%;
+                color:white;
+                text-align:center;
+            }
+
+            .detalles_servicios{
+                width:100%;
+                left:0;
+                top:60%;
+                font-family:"Exo-Light";
+                font-size:80%;
+                color:white;
+                text-align:center;
+            }
+
+            .redireccion_consulta{
+                width:80%;
+                margin-left:15%;
+                font-family:"Exo-Light";
+                font-size:90%;
+                color:#3ea9f7;
+                text-align:center;
+                background-color:white;
+                border-radius:8px;
+                padding:8px;
+            }
+
+            .redireccion_consulta:hover{
+                color:white;
+                background-color:#3ea9f7;
+                border-style:solid;
+                border-width:1px;
+                border-color:white;
+            }
+
+            .redireccion_consulta_inverso{
+                width:80%;
+                margin-left:15%;
+                font-family:"Exo-Light";
+                font-size:90%;
+                color:white;
+                text-align:center;
+                background-color:#3ea9f7;
+                border-radius:8px;
+                padding:8px;
+            }
+
+            .redireccion_consulta_inverso:hover{
+                color:#3ea9f7;
+                background-color:white;
+                border-style:solid;
+                border-width:1px;
+                border-color:#3ea9f7;
+            }
+
+            #productos{
+                top:180%;
+                left:-100%;
+                background-color:#3ea9f7;
+                /*animation-name: animacion_izquierda_derecha;
+                animation-duration: 2s;*/
+            }
+
+            .ofertas_productos{
+                width:20%;
+                height:90%;
+                margin-left:4%;
+                margin-top:2%;
+                border-style:solid;
+                border-width:1px;
+                border-radius:9px;
+                background-color:white;
+                float:left;
+            }
+
+            .imagenes_productos{
+                width:100%;
+                height:50%;
+                left:0;
+                top:0;
+                border-color:white;
+            }
+
+            .titulos_productos{
+                width:100%;
+                left:0;
+                top:50%;
+                font-family:"Exo-Light";
+                font-size:100%;
+                color:#3ea9f7;
+                text-align:center;
+            }
+
+            .detalles_productos{
+                width:100%;
+                left:0;
+                top:60%;
+                font-family:"Exo-Light";
+                font-size:80%;
+                color:#3ea9f7;
+                text-align:center;
+            }
+
+            #quienes_somos{
+                top:260%;
+                left:100%;
+                background-color:white;
+                /*animation-name: animacion_derecha_izquierda;
+                animation-duration: 2s;*/
+            }
+
+            .personal{
+                width:20%;
+                height:90%;
+                margin-left:4%;
+                margin-top:2%;
+                border-style:solid;
+                border-width:1px;
+                border-radius:9px;
+                background-color:#3ea9f7;
+                float:left;
+            }
+
+            .imagenes_personal{
+                width:100%;
+                height:50%;
+                left:0;
+                top:0;
+                border-color:white;
+            }
+
+            .nombres_personal{
+                width:100%;
+                left:0;
+                top:50%;
+                font-family:"Exo-Light";
+                font-size:100%;
+                color:white;
+                text-align:center;
+            }
+
+            .detalles_personal{
+                width:100%;
+                left:0;
+                top:60%;
+                font-family:"Exo-Light";
+                font-size:80%;
+                color:white;
+                text-align:center;
+            }
+
+
+            #contactos{
+                top:100%;
+                left:0;
+                background-color:#3ea9f7;
+                /*animation-name: animacion_izquierda_derecha;
+                animation-duration: 2s;*/
+            }
+
+            footer{
+                position:absolute;
+                width:100%;
+                height:5%;
+                left:0;
+                top:180%;
+                z-index:1;
+                background-color:white;
+                border-style:solid none none none;
+                border-color:#3ea9f7;
+                border-width:1px;
+            }
+
+            .pie{
+                position:absolute;
+                width:50%;
+                left:25%;
+                top:20%;
+                font-family:"Exo-Light";
+                font-size:100%;
+                color:#3ea9f7;
+                text-align:center;
+            }
+
+            /*******************************************************/
+
+            #email_incorporado{
+                position:absolute;
+                width:50%;
+                height:100%;
+                left:0;
+                top:0;
+            }
+
+            #email_remitente{
+                position:absolute;
+                width:80%;
+                height:10%;
+                left:10%;
+                top:5%;
+                font-family:"Exo-Light";
+                font-size:120%;
+                background-color:white;
+                border-style:none;
+                border-radius:8px;
+                color:black;
+            }
+
+            #email_cuerpo{
+                position:absolute;
+                width:80%;
+                height:60%;
+                left:10%;
+                top:20%;
+                font-family:"Exo-Light";
+                font-size:100%;
+                background-color:white;
+                border-radius:8px;
+                color:black;
+            }
+
+            #enviar_email{
+                position:absolute;
+                width:80%;
+                height:10%;
+                left:10%;
+                top:85%;
+                font-family:"Exo-Light";
+                font-size:120%;
+                text-align:center;
+                background-color:#3ea9f7;
+                color:white;
+                border-style:solid;
+                border-radius:8px;
+                border-width:1px;
+                border-color:white;
+                cursor:pointer;
+            }
+
+            #enviar_email:hover{
+                background-color:white;
+                color:#3ea9f7;
+            }
+
+            #enlaces_contactos{
+                position:absolute;
+                width:50%;
+                height:20%;
+                left:50%;
+                top:0;
+            }
+
+            .ir_contactos{
+                width:10%;
+                height:auto;
+                margin-left:17.5%;
+                margin-top:5%;
+                cursor:pointer;
+            }
+            
+            #contenedor_mapa{
+                position:absolute;
+                width:50%;
+                height:80%;
+                left:50%;
+                top:20%;
+            }
+
+            #mapa{
+                position:absolute;
+                width:90%;
+                height:90%;
+                left:5%;
+                top:5%;
+            }   
+        </style>
+        <script src="js/jquery-3.1.0.min.js"></script>
+        <script>
+            function enviar_email(){
+                var direccion_formulario = document.getElementById("email_remitente").value;
+                var mensaje_formulario = document.getElementById("email_cuerpo").value;
+
+                if(direccion_formulario != "" && mensaje_formulario != ""){
+                    var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+                    if (filtro.test(direccion_formulario)){
+                        $.ajax({
+                            type: 'POST',
+                            url: 'config/email.php',
+                            data: {
+                                direccion_formulario: direccion_formulario,
+                                mensaje_formulario: mensaje_formulario
+                            },
+
+                            success: function (response) {
+                                if(response == "Su mensaje ha sido correctamente enviado, muchas gracias!"){
+                                    document.getElementById("email_remitente").value = "";
+                                    document.getElementById("email_cuerpo").value = "";
+                                    alert(response);
+                                }else{
+                                    alert("Hubo un problema, por favor intente mas tarde: " + response);
+                                }
+                            },
+
+                            error: function() { 
+                                alert("Hubo un problema, por favor intente mas tarde"); 
+                            } 
+                        }); 
+                        return false;
+                    }else{
+                        alert("Formato de email equivocado");
+                        return;
+                    }
+                }else{
+                    alert("La direccion de email y mensaje son obligatorios");
+                }
+            }
+
+            function animacion_scroll(){
+                window.addEventListener("scroll", () => {
+                    let scrollTop = window.scrollY;
+                    let alturaDocumento = document.body.offsetHeight;
+                    let anchoVentana = window.innerHeight;
+                    let scrollPorcentaje = scrollTop / (alturaDocumento - anchoVentana);
+                    let scrollPorcentajeRedondeado = Math.abs(Math.round(scrollPorcentaje * 100));
+
+                    if(scrollPorcentajeRedondeado >= 50){
+                        document.getElementById("servicios").style.animationName = "animacion_derecha_izquierda";
+                        document.getElementById("servicios").style.animationDuration = "2s";
+                        document.getElementById("servicios").style.animationFillMode = "forwards";
+                    }
+
+                    if(scrollPorcentajeRedondeado >= 120){
+                        document.getElementById("productos").style.animationName = "animacion_izquierda_derecha";
+                        document.getElementById("productos").style.animationDuration = "2s";
+                        document.getElementById("productos").style.animationFillMode = "forwards";
+                    }
+
+                    if(scrollPorcentajeRedondeado >= 190){
+                        document.getElementById("quienes_somos").style.animationName = "animacion_derecha_izquierda";
+                        document.getElementById("quienes_somos").style.animationDuration = "2s";
+                        document.getElementById("quienes_somos").style.animationFillMode = "forwards";
+                    }
+
+                    if(scrollPorcentajeRedondeado >= 260){
+                        document.getElementById("contactos").style.animationName = "animacion_izquierda_derecha";
+                        document.getElementById("contactos").style.animationDuration = "2s";
+                        document.getElementById("contactos").style.animationFillMode = "forwards";
+                    }
+                });
+            }
+        </script>
+    </head>
+    <!--<header>
+        <img id="logo" src="img/logo.png"/>
+
+        <a class="ir_secciones" id="ir_inicio" href="#presentacion">Inicio</a>
+        <a class="ir_secciones" id="ir_productos" href="#servicios">Productos</a>
+        <a class="ir_secciones" id="ir_servicios" href="#productos">Servicios</a>
+        <a class="ir_secciones" id="ir_quienes_somos" href="#quienes_somos">Quienes<br>somos</a>
+        <a class="ir_secciones" id="ir_contactos" href="#contactos">Contactos</a>
+
+        <a href="https://www.facebook.com/Laboratorio-Boliviano-de-Biota-y-Desarrollo-111399864323134" target="_blank"><img class="ir_rrss" id="ir_facebook" src="img/facebook.png"/></a>
+        <a href=""><img class="ir_rrss" id="ir_twitter" src="img/twitter.png"/></a>
+        <a href=""><img class="ir_rrss" id="ir_youtube" src="img/youtube.png"/></a>
+    </header>-->
+    <body>
+        <img id="fondo_temporal" src="img/construccion.jpg"/>
+
+        <!--<img id="fondo_flotante" src="img/fondo.jpg"/>
+
+        <div id="presentacion">
+            <video id="video_presentacion" autoplay loop muted>
+                <source src="videos/presentacion.mp4" type="video/mp4"/>
+                Video no soportado
+            </video>
+            <div id="texto_presentacion">Lorem ipsum dolor sit amet Lorem ipsum <br>ipsum dolor sit amet</div>
+        </div>
+
+        <div class="secciones" id="servicios">
+            <div class="ofertas_servicios" id="servicio_1">
+                <img class="imagenes_servicios" src="img/servicio_1.jpg"/>
+                <h2 class="titulos_servicios">Titulo servicio 1</h2>
+                <p class="detalles_servicios">Detalles del servicio 1</p>
+                <a class="redireccion_consulta" href="">Consultar por WhatsApp</a>
+            </div>
+
+            <div class="ofertas_servicios" id="servicio_2">
+                <img class="imagenes_servicios" src="img/servicio_1.jpg"/>
+                <h2 class="titulos_servicios">Titulo servicio 1</h2>
+                <p class="detalles_servicios">Detalles del servicio 1</p>
+                <a class="redireccion_consulta" href="">Consultar por WhatsApp</a>
+            </div>
+
+            <div class="ofertas_servicios" id="servicio_3">
+                <img class="imagenes_servicios" src="img/servicio_1.jpg"/>
+                <h2 class="titulos_servicios">Titulo servicio 1</h2>
+                <p class="detalles_servicios">Detalles del servicio 1</p>
+                <a class="redireccion_consulta" href="">Consultar por WhatsApp</a>
+            </div>
+
+            <div class="ofertas_servicios" id="servicio_4">
+                <img class="imagenes_servicios" src="img/servicio_1.jpg"/>
+                <h2 class="titulos_servicios">Titulo servicio 1</h2>
+                <p class="detalles_servicios">Detalles del servicio 1</p>
+                <a class="redireccion_consulta" href="">Consultar por WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="secciones" id="productos">
+            <div class="ofertas_productos" id="producto_1">
+                <img class="imagenes_productos" src="img/servicio_1.jpg"/>
+                <h2 class="titulos_productos">Titulo producto 1</h2>
+                <p class="detalles_productos">Detalles del producto 1</p>
+                <a class="redireccion_consulta_inverso" href="">Consultar por WhatsApp</a>
+            </div>
+
+            <div class="ofertas_productos" id="producto_2">
+                <img class="imagenes_productos" src="img/servicio_1.jpg"/>
+                <h2 class="titulos_productos">Titulo producto 1</h2>
+                <p class="detalles_productos">Detalles del producto 1</p>
+                <a class="redireccion_consulta_inverso" href="">Consultar por WhatsApp</a>
+            </div>
+
+            <div class="ofertas_productos" id="producto_3">
+                <img class="imagenes_productos" src="img/servicio_1.jpg"/>
+                <h2 class="titulos_productos">Titulo producto 1</h2>
+                <p class="detalles_productos">Detalles del producto 1</p>
+                <a class="redireccion_consulta_inverso" href="">Consultar por WhatsApp</a>
+            </div>
+
+            <div class="ofertas_productos" id="producto_4">
+                <img class="imagenes_productos" src="img/servicio_1.jpg"/>
+                <h2 class="titulos_productos">Titulo producto 1</h2>
+                <p class="detalles_productos">Detalles del producto 1</p>
+                <a class="redireccion_consulta_inverso" href="">Consultar por WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="secciones" id="quienes_somos">
+            <div class="personal" id="personal_1">
+                <img class="imagenes_personal" src="img/servicio_1.jpg"/>
+                <h2 class="nombres_personal">Nombre personal 1</h2>
+                <p class="detalles_personal">Detalles del personal 1</p>
+            </div>
+
+            <div class="personal" id="personal_2">
+                <img class="imagenes_personal" src="img/servicio_1.jpg"/>
+                <h2 class="nombres_personal">Nombre personal 1</h2>
+                <p class="detalles_personal">Detalles del personal 1</p>
+            </div>
+
+            <div class="personal" id="personal_3">
+                <img class="imagenes_personal" src="img/servicio_1.jpg"/>
+                <h2 class="nombres_personal">Nombre personal 1</h2>
+                <p class="detalles_personal">Detalles del personal 1</p>
+            </div>
+
+            <div class="personal" id="personal_4">
+                <img class="imagenes_personal" src="img/servicio_1.jpg"/>
+                <h2 class="nombres_personal">Nombre personal 1</h2>
+                <p class="detalles_personal">Detalles del personal 1</p>
+            </div>
+        </div>-->
+
+        <div class="secciones" id="contactos">
+            <div id="email_incorporado">
+                <input type="text" id="email_remitente" placeholder="Tu email..."/>
+                <textarea id="email_cuerpo" placeholder="Tu mensaje..."></textarea>
+                <button id="enviar_email" onclick="enviar_email()">Enviar mensaje</button>
+            </div>
+
+            <div id="enlaces_contactos">
+                <a href="https://api.whatsapp.com/send?phone=59172559282&text=Hola"><img class="ir_contactos" id="ir_whatsapp" src="img/whatsapp.png"/></a>
+                <a href=""><img class="ir_contactos" id="ir_telegram" src="img/telegram.png"/></a>
+                <a href="mailto:mailto:jaimerodriguez0001@gmail.com?subject=Solicitud de informacion&body=Hola"><img class="ir_contactos" id="ir_email" src="img/email.png"/></a>
+            </div>
+
+            <div id="contenedor_mapa">
+                <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2704.970399891349!2d-68.12924701132401!3d-16.505597282571276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f20645b9c20af%3A0x905e8f537f9afdf0!2sCapit%C3%A1n%20Ravelo%20%26%20Montevideo%2C%20La%20Paz!5e0!3m2!1ses!2sbo!4v1591896035538!5m2!1ses!2sbo" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="pie">Copyright © Sistemas Wila Wara - <script>document.write(new Date().getFullYear());</script></div>
+    </footer>
+</html>
