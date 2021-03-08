@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale = 1, maximum-scale = 1"/>
+
+        <meta property="og:title" content="Laboratorio Boliviano de Biodiversidad y Desarrollo" />
+        <meta property="og:type" content="Dashboard" />
+        <meta property="og:description" content="Linea temporal sobre proyecto con la Cooperacion Alemana">
+        <meta property="og:image" content="img/logo.png" />
+        <meta property="og:url" content="http://biobolivia.tech/web_apps/linea_tiempo/" />
+        <link rel="icon" type="image/png" href="../../img/icono.png">
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/css.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Laboratorio Boliviano de Biodiversidad y Desarrollo</title>
+        <script src="js/jquery-3.1.0.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
+        <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+        <script id="rendered-js" >
+            // SMOOTH SCROLLING SECTIONS
+            $('a[href*=#]:not([href=#])').click(function () {
+              if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') ||
+              location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                  $('html,body').animate({
+                    scrollTop: target.offset().top },
+                  1000);
+                  return false;
+                }
+              }
+            });
+            //# sourceURL=pen.js
+        </script>
+        <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-bb9a2ba1f03f6147732cb3cd52ac86c6b24524aa87a05ed0b726f11e46d7e277.js"></script>
+    </head>
+    <body translate="no" onload="cargar_proyectos()">
+        <select id="filtro_tematicas" onchange="filtrar_tematica()">
+            <option class="opciones_tematica" value="default">Todas las tem&aacute;ticas</option>
+            <option class="opciones_tematica" value="Desarrollo rural">Desarrollo rural</option>
+            <option class="opciones_tematica" value="Tematica 2">Tematica 2</option>
+        </select>
+        <body data-spy="scroll" data-target="#navbar-example">
+            <div class="wrapper" id="contenedor_general">
+                <nav class="nav__wrapper" id="navbar-example">
+                    <ul class="nav" id="contenedor_presentaciones">
+                    </ul>
+                </nav>
+            </div>
+        </body>
+    </body>
+    <footer>
+        <div class="pie">Copyright © Sistemas Wila Wara - <script>document.write(new Date().getFullYear());</script></div>
+    </footer>
+</html>
