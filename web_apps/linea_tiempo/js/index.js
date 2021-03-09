@@ -50,9 +50,9 @@ function cargar_proyectos(){
                     nombre_tematica = proyectos[i + 5];
 
                     if(fecha_fin === null){
-                        periodo = fecha_inicio;
+                        periodo = fecha_inicio.substring(0,4);
                     }else{
-                        periodo = fecha_inicio + ' al <br>' + fecha_fin;
+                        periodo = fecha_inicio.substring(0,4) + ' al ' + fecha_fin.substring(0,4);
                     }
 
                     if(i == 0){
@@ -60,8 +60,8 @@ function cargar_proyectos(){
                         <li role="presentation" class="active">\n\
                             <a href="#section' + (i + 1) + '">\n\
                                 <span class="nav__counter">' + periodo + '</span>\n\
-                                <h3 class="nav__title">' + nombre_proyecto + '</h3>\n\
-                                <p class="nav__body"><strong>' + orden + '.-</strong> ' + nombre_tematica + '</p>\n\
+                                <h3 class="nav__title"></h3>\n\
+                                <p class="nav__body"><strong></strong></p>\n\
                             </a>\n\
                         </li>';  
                     }else{
@@ -69,14 +69,14 @@ function cargar_proyectos(){
                         <li role="presentation">\n\
                             <a href="#section' + (i + 1) + '">\n\
                                 <span class="nav__counter">' + periodo + '</span>\n\
-                                <h3 class="nav__title">' + nombre_proyecto + '</h3>\n\
-                                <p class="nav__body"><strong>' + orden + '.-</strong> ' + nombre_tematica + '</p>\n\
+                                <h3 class="nav__title"></h3>\n\
+                                <p class="nav__body"><strong></strong></p>\n\
                             </a>\n\
                         </li>';  
                     }
 
                     outerHTML2 += '\n\
-                    <section class="section section' + (i + 1) + '" id="section' + (i + 1) + '"><div class="texto_resultado">' + resultados + '</div></section>';                                                                 
+                    <section class="section section' + (i + 1) + '" id="section' + (i + 1) + '"><div class="texto_resultado"><strong>' + nombre_proyecto + '<br>Tem&aacute;tica: ' + nombre_tematica + '</strong><br>' + resultados + '</div></section>';                                                                 
                 }
 
                 document.getElementById("contenedor_presentaciones").innerHTML = outerHTML1;
@@ -128,9 +128,9 @@ function filtrar_tematica(){
                 nombre_tematica = proyectos[i + 5];
 
                 if(fecha_fin === null){
-                    periodo = fecha_inicio;
+                    periodo = fecha_inicio.substring(0,4);
                 }else{
-                    periodo = fecha_inicio + ' al <br>' + fecha_fin;
+                    periodo = fecha_inicio.substring(0,4) + ' al ' + fecha_fin.substring(0,4);
                 }
 
                 if(i == 0){
@@ -138,8 +138,8 @@ function filtrar_tematica(){
                     <li role="presentation" class="active">\n\
                         <a href="#section' + (i + 1) + '">\n\
                             <span class="nav__counter">' + periodo + '</span>\n\
-                            <h3 class="nav__title">' + nombre_proyecto + '</h3>\n\
-                            <p class="nav__body"><strong>' + orden + '.-</strong> ' + nombre_tematica + '</p>\n\
+                            <h3 class="nav__title"></h3>\n\
+                            <p class="nav__body"><strong></strong></p>\n\
                         </a>\n\
                     </li>';  
                 }else{
@@ -147,14 +147,14 @@ function filtrar_tematica(){
                     <li role="presentation">\n\
                         <a href="#section' + (i + 1) + '">\n\
                             <span class="nav__counter">' + periodo + '</span>\n\
-                            <h3 class="nav__title">' + nombre_proyecto + '</h3>\n\
-                            <p class="nav__body"><strong>' + orden + '.-</strong> ' + nombre_tematica + '</p>\n\
+                            <h3 class="nav__title"></h3>\n\
+                            <p class="nav__body"><strong></strong></p>\n\
                         </a>\n\
                     </li>';  
                 }
 
                 outerHTML2 += '\n\
-                <section class="section section' + (i + 1) + '" id="section' + (i + 1) + '"><div class="texto_resultado">' + resultados + '</div></section>';                                                                 
+                <section class="section section' + (i + 1) + '" id="section' + (i + 1) + '"><div class="texto_resultado"><strong>' + nombre_proyecto + '<br>Tem&aacute;tica: ' + nombre_tematica + '</strong><br>' + resultados + '</div></section>';
             }
 
             document.getElementById("contenedor_presentaciones").innerHTML = outerHTML1;

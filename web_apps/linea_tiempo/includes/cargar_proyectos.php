@@ -6,7 +6,7 @@
 	// Armando la consulta
 	$consulta_proyectos = "SELECT * FROM proyectos 
 							INNER JOIN tematicas ON tematicas.id_tematica = proyectos.id_tematica 
-							ORDER BY proyectos.orden ASC";
+							ORDER BY proyectos.fecha_inicio ASC";
 
 	// Ejecutando la consulta
 	if ($resultado_proyectos = $Conexion->query($consulta_proyectos)) {

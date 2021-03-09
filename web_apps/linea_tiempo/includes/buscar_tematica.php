@@ -8,12 +8,12 @@
 	if($tematica == "default"){
 		$consulta_proyectos = "SELECT * FROM proyectos 
 							INNER JOIN tematicas ON tematicas.id_tematica = proyectos.id_tematica 
-							ORDER BY proyectos.orden ASC";
+							ORDER BY proyectos.fecha_inicio ASC";
 	}else{
 		$consulta_proyectos = "SELECT * FROM proyectos 
 							INNER JOIN tematicas ON tematicas.id_tematica = proyectos.id_tematica 
 							WHERE tematicas.nombre_tematica = '$tematica' 
-							ORDER BY proyectos.orden ASC";
+							ORDER BY proyectos.fecha_inicio ASC";
 	}
 
 	// Ejecutando la consulta
