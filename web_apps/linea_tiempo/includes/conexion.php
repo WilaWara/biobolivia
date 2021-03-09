@@ -1,15 +1,15 @@
 <?php
 	global $host,$user,$pass,$db;
 
-	/*$host = "localhost";
+	$host = "localhost";
 	$user = "root";
 	$pass = "";
-	$db = "linea_tiempo";*/
+	$db = "linea_tiempo";
 
-	$host = "localhost";
+	/*$host = "localhost";
 	$user = "u285316360_lbbd";
 	$pass = "JxcOcU@4";
-	$db = "u285316360_lbbd_lt";
+	$db = "u285316360_lbbd_lt";*/
 
 	//phpinfo();
 	try{
