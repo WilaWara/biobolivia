@@ -44,11 +44,11 @@ function cargar_proyectos(){
 
                 for(i = 0; i < longitud - 1; i+=6){
                     nombre_proyecto = proyectos[i];
-                    if(nombre_proyecto.length >= 12){
+                    /*if(nombre_proyecto.length >= 12){
                         resena_nombre_proyecto = nombre_proyecto.substring(0,12) + "...";
                     }else{
                         resena_nombre_proyecto = nombre_proyecto;
-                    }
+                    }*/
                     fecha_inicio = proyectos[i + 1];
                     fecha_fin = proyectos[i + 2];
                     orden = proyectos[i + 3];
@@ -65,7 +65,7 @@ function cargar_proyectos(){
                         outerHTML1 += '\n\
                         <li role="presentation" class="active">\n\
                             <a href="#section' + (i + 1) + '">\n\
-                                <span class="nav__counter"><strong>' + periodo + ':</strong> ' + resena_nombre_proyecto + '</span>\n\
+                                <span class="nav__counter"><strong>' + periodo + '</strong></span>\n\
                                 <h3 class="nav__title"></h3>\n\
                                 <p class="nav__body"><strong></strong></p>\n\
                             </a>\n\
@@ -74,7 +74,7 @@ function cargar_proyectos(){
                         outerHTML1 += '\n\
                         <li role="presentation">\n\
                             <a href="#section' + (i + 1) + '">\n\
-                                <span class="nav__counter"><strong>' + periodo + ':</strong> ' + resena_nombre_proyecto + '</span>\n\
+                                <span class="nav__counter"><strong>' + periodo + '</strong></span>\n\
                                 <h3 class="nav__title"></h3>\n\
                                 <p class="nav__body"><strong></strong></p>\n\
                             </a>\n\
@@ -128,11 +128,11 @@ function filtrar_tematica(){
 
             for(i = 0; i < longitud - 1; i+=6){
                 nombre_proyecto = proyectos[i];
-                if(nombre_proyecto.length >= 12){
+                /*if(nombre_proyecto.length >= 12){
                     resena_nombre_proyecto = nombre_proyecto.substring(0,12) + "...";
                 }else{
                     resena_nombre_proyecto = nombre_proyecto;
-                }
+                }*/
                 fecha_inicio = proyectos[i + 1];
                 fecha_fin = proyectos[i + 2];
                 orden = proyectos[i + 3];
@@ -149,7 +149,7 @@ function filtrar_tematica(){
                     outerHTML1 += '\n\
                     <li role="presentation" class="active">\n\
                         <a href="#section' + (i + 1) + '">\n\
-                            <span class="nav__counter"><strong>' + periodo + ':</strong> ' + resena_nombre_proyecto + '</span>\n\
+                            <span class="nav__counter"><strong>' + periodo + '</strong></span>\n\
                             <h3 class="nav__title"></h3>\n\
                             <p class="nav__body"><strong></strong></p>\n\
                         </a>\n\
@@ -158,7 +158,7 @@ function filtrar_tematica(){
                     outerHTML1 += '\n\
                     <li role="presentation">\n\
                         <a href="#section' + (i + 1) + '">\n\
-                            <span class="nav__counter"><strong>' + periodo + ':</strong> ' + resena_nombre_proyecto + '</span>\n\
+                            <span class="nav__counter"><strong>' + periodo + '</strong></span>\n\
                             <h3 class="nav__title"></h3>\n\
                             <p class="nav__body"><strong></strong></p>\n\
                         </a>\n\
