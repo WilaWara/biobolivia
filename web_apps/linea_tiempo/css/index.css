@@ -875,6 +875,16 @@
       color:#e60007;
       text-align:center;
   }
+
+  #bajar{
+    position:fixed;
+    width:6%;
+    height:auto;
+    left:48%;
+    bottom:4%;
+    background-color:transparent;
+    z-index:1;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 767px) and (orientation: landscape){
@@ -913,7 +923,7 @@
 
   .nav__wrapper {
     position: fixed;
-    height: 120%;
+    height: 140%;
     padding: 30px;
     display: flex;
     flex-flow: column nowrap;
@@ -924,7 +934,7 @@
   }
   .nav__counter {
     position:absolute;
-    font-size: 24px;
+    font-size: 18px;
     transition: all 0.15s ease-out;
   }
   .nav__title {
@@ -1043,6 +1053,16 @@
       color:#e60007;
       text-align:center;
   }
+
+  #bajar{
+    position:fixed;
+    width:6%;
+    height:auto;
+    left:48%;
+    bottom:4%;
+    background-color:transparent;
+    z-index:1;
+  }
 }
 
 @media (max-width: 480px) and (orientation: portrait) {
@@ -1153,7 +1173,7 @@
     top: 35px;
   }
   .nav li.active .nav__counter {
-      font-size: 13px;
+      font-size: 22px;
   }
   .nav li.active .nav__title {
       height: 20px;
@@ -1210,6 +1230,16 @@
       color:#e60007;
       text-align:center;
   }
+
+  #bajar{
+    position:fixed;
+    width:6%;
+    height:auto;
+    left:48%;
+    bottom:4%;
+    background-color:transparent;
+    z-index:1;
+  }
 }
 
 @media (max-width: 480px) and (orientation: landscape) {
@@ -1248,7 +1278,7 @@
 
   .nav__wrapper {
     position: fixed;
-    height: 135%;
+    height: 170%;
     padding: 5px;
     display: flex;
     flex-flow: column nowrap;
@@ -1376,5 +1406,15 @@
       font-size:100%;
       color:#e60007;
       text-align:center;
+  }
+
+  #bajar{
+    position:fixed;
+    width:6%;
+    height:auto;
+    left:48%;
+    bottom:4%;
+    background-color:transparent;
+    z-index:1;
   }
 }
